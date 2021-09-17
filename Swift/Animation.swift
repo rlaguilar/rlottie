@@ -17,6 +17,10 @@ public struct Animation {
         return animation.numberOfFrames
     }
 
+    public var totalDuration: CMTime {
+        return animation.totalDuration
+    }
+
     public var framesDuration: CMTime {
         return animation.framesDuration
     }

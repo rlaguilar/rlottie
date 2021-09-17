@@ -8,6 +8,7 @@ class AnimationWrapper {
 
     let numberOfFrames: Int
     let framesDuration: CMTime
+    let totalDuration: CMTime
     let width: Int
     let height: Int
 
@@ -21,7 +22,8 @@ class AnimationWrapper {
         }
 
         let totalDuration = lottie_animation_get_duration(animation)
-        framesDuration = CMTime(seconds: totalDuration, preferredTimescale: 600)
+        self.totalDuration = CMTime(seconds: totalDuration, preferredTimescale: 600)
+        framesDuration = CMTime(seconds: totalDuration / Double(numberOfFrames), preferredTimescale: 600)
 
         var width = 0
         var height = 0
