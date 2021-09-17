@@ -29,6 +29,7 @@ let package = Package(
             exclude: [
                 "vector/pixman/pixman-arm-neon-asm.S",
                 "wasm/",
+                "vector/pixman",
                 "CMakeLists.txt",
                 "binding/CMakeLists.txt",
                 "binding/c/CMakeLists.txt",
@@ -43,8 +44,6 @@ let package = Package(
                 "vector/freetype/CMakeLists.txt",
                 "vector/freetype/meson.build",
                 "vector/meson.build",
-                "vector/pixman/CMakeLists.txt",
-                "vector/pixman/meson.build",
                 "vector/stb/CMakeLists.txt",
                 "vector/stb/meson.build",
             ],
