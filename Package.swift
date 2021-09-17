@@ -30,6 +30,7 @@ let package = Package(
                 "vector/pixman/pixman-arm-neon-asm.S",
                 "wasm/",
                 "vector/pixman",
+                "vector/vdrawhelper_neon.cpp",
                 "CMakeLists.txt",
                 "binding/CMakeLists.txt",
                 "binding/c/CMakeLists.txt",
