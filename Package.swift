@@ -9,6 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "slottie",
+            type: .dynamic,
             targets: ["slottie"]),
     ],
     dependencies: [
@@ -31,6 +32,7 @@ let package = Package(
                 "wasm/",
                 "vector/pixman",
                 "vector/vdrawhelper_neon.cpp",
+                "lottie/rapidjson/msinttypes",
                 "CMakeLists.txt",
                 "binding/CMakeLists.txt",
                 "binding/c/CMakeLists.txt",
