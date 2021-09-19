@@ -14,7 +14,6 @@ public class FramesExtractor {
 
     private var nextFrameIndex = 0
     private var nextFramePresentationTime: CMTime = .zero
-    private var reusableAnimationFrame = AnimationFrame.invalid
 
     public init?(animation: Animation, config: FramesExtractorConfig) {
         guard let renderer = Renderer(
@@ -56,13 +55,15 @@ public class FramesExtractor {
             throw Error.unableToRenderAnimationFrame
         }
 
-        reusableAnimationFrame.image = image
-        reusableAnimationFrame.presentationTime = nextFramePresentationTime
-        reusableAnimationFrame.duration = animation.framesDuration
+        let frame = AnimationFrame(
+            image: image,
+            presentationTime: nextFramePresentationTime,
+            duration: animation.framesDuration
+        )
 
         nextFrameIndex += 1
         nextFramePresentationTime = nextFramePresentationTime + animation.framesDuration
 
-        return reusableAnimationFrame
+        return frame
     }
 }
