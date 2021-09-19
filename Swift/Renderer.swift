@@ -11,6 +11,8 @@ public struct Renderer {
             rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue
         ).union(.byteOrder32Little)
 
+        let scale = scale == 0 ? UIScreen.main.scale : scale
+
         guard let context = CGContext(
             data: nil,
             width: Int(CGFloat(width) * scale),
