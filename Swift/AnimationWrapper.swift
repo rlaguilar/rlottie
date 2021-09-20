@@ -1,7 +1,8 @@
 import CoreMedia
 import Foundation
 
-import rlottie
+import pepe
+//import rlottie
 
 class AnimationWrapper {
     let animation: OpaquePointer
