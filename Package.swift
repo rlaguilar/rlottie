@@ -21,7 +21,12 @@ let package = Package(
         .target(
             name: "slottie",
             dependencies: ["rlottie"],
-            path: "Swift"
+            path: "Swift/Sources"
+        ),
+        .testTarget(
+            name: "slottieTests",
+            dependencies: ["slottie"],
+            path: "Swift/Tests"
         ),
         .target(
             name: "rlottie",
