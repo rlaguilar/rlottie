@@ -1,3 +1,4 @@
+import Foundation
 import XCTest
 @testable import slottie
 
@@ -12,7 +13,13 @@ final class AnimationTests: XCTestCase {
     }
 
     func testExample() throws {
-        let animation = Animation(string: "")
-        XCTAssertNil(animation)
+        let url = Bundle.module.url(forResource: "gradient", withExtension: "json")!
+        var data = try Data(contentsOf: url)
+        data.append(contentsOf: [0])
+
+        guard let _ = Animation(data: data) else {
+            XCTFail()
+            return
+        }
     }
 }

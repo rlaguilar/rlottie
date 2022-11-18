@@ -26,7 +26,8 @@ let package = Package(
         .testTarget(
             name: "slottieTests",
             dependencies: ["slottie"],
-            path: "Swift/Tests"
+            path: "Swift/Tests",
+            resources: [.process("Resources")]
         ),
         .target(
             name: "rlottie",
