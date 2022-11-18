@@ -72,8 +72,11 @@ public:
     Color(float red, float green, float blue) : r(red), g(green), b(blue) {}
     VColor toColor(float a = 1)
     {
-        return VColor(uint8_t(255 * r), uint8_t(255 * g), uint8_t(255 * b),
-                      uint8_t(255 * a));
+        return VColor(uint8_t(round(255 * r)),
+                      uint8_t(round(255 * g)),
+                      uint8_t(round(255 * b)),
+                      uint8_t(round(255 * a))
+                      );
     }
     friend inline Color operator+(const Color &c1, const Color &c2);
     friend inline Color operator-(const Color &c1, const Color &c2);
