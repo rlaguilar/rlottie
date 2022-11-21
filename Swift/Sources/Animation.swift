@@ -47,19 +47,33 @@ public struct Animation {
 }
 
 public extension Animation {
-    init?(data: Data) {
-        guard let animation = AnimationWrapper(data: data) else {
+    init?(data: Data, gradientRecoloringMap: [String: String]) {
+        guard let animation = AnimationWrapper(data: data, gradientRecoloringMap: .init(hexColors: gradientRecoloringMap)) else {
             return nil
         }
 
         self.init(animation: animation)
     }
 
-    init?(string: String) {
-        guard let animation = AnimationWrapper(string: string) else {
+    init?(string: String, gradientRecoloringMap: [String: String]) {
+        guard let animation = AnimationWrapper(string: string, gradientRecoloringMap: .init(hexColors: gradientRecoloringMap)) else {
             return nil
         }
 
         self.init(animation: animation)
+    }
+}
+
+extension Dictionary where Key == Color, Value == Color {
+    init(hexColors: [String: String]) {
+        let colorPairs = hexColors.compactMap { (hex1, hex2) -> (Color, Color)? in
+            guard let color1 = Color(hex: hex1), let color2 = Color(hex: hex2) else {
+                return nil
+            }
+
+            return (color1, color2)
+        }
+
+        self = Dictionary(colorPairs, uniquingKeysWith: { $1 })
     }
 }
